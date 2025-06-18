@@ -724,5 +724,15 @@ async def health_check():
             content={"status": "unhealthy", "error": str(e), "api_key_set": bool(API_KEY)}
         )
 
+@app.get("/debug-db")
+def debug_db():
+    import os
+    return {
+        "cwd": os.getcwd(),
+        "db_exists": os.path.exists("knowledge_base.db"),
+        "db_path": os.path.abspath("knowledge_base.db"),
+        "files": os.listdir(".")
+    }
+
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True) 
+    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
