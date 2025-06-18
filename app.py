@@ -723,6 +723,13 @@ async def health_check():
             status_code=500,
             content={"status": "unhealthy", "error": str(e), "api_key_set": bool(API_KEY)}
         )
+from fastapi import Request
+
+@app.post("/")
+async def root_post(request: Request):
+    data = await request.json()
+    # Optionally, you can call your main query logic here
+    return {"message": "POST received at /", "data": data}
 
 @app.get("/debug-db")
 def debug_db():
