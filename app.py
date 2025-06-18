@@ -32,12 +32,11 @@ class QueryRequest(BaseModel):
     question: str
     # Add other fields if needed
 
-# Main query logic (replace with your actual logic)
 async def query_knowledge_base(request: QueryRequest):
-    # Example: fetch answer from DB or model
-    # Replace this with your actual answer logic
+    # Your actual answer logic here
     answer = f"Received question: {request.question}"
-    return {"answer": answer}
+    links = []  # Or provide actual relevant links if you have them
+    return {"answer": answer, "links": links}
 
 # /query endpoint
 @app.post("/query")
@@ -84,3 +83,4 @@ def health():
             "error": str(e),
             "api_key_set": bool(API_KEY)
         }
+    
