@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Run app.py",
+			"command": "C:/Users/hp/Downloads/tds-project-main/TDS-solver/env/Scripts/python.exe",
+			"args": [
+				"app.py"
+			],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}
